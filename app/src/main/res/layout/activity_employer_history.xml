@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.employer.EmployerHistoryActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/employerToolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Job History - Employer"
+        app:titleMarginStart="10dp"
+        app:titleTextColor="@color/colorTertiary">
+
+    <Button
+        android:id="@+id/employerViewAcceptedApplicantsBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="Back-Employer Home"
+        android:backgroundTint="@color/colorSecondary"
+        android:textColor="@color/colorTertiary"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:rowCount="6"
+        android:columnCount="1"
+        app:layout_constraintTop_toBottomOf="@+id/employerToolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <Button
+            android:id="@+id/jobsPostedButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:text="Jobs Posted"
+            android:textColor="@color/colorTertiary"
+            android:layout_margin="20dp"/>
+        <Button
+            android:id="@+id/acceptedCandidateButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:text="Candidate Accepted"
+            android:textColor="@color/colorTertiary"
+            android:layout_margin="20dp"/>
+        <Button
+            android:id="@+id/preferenceButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:text="My Preferred candidate"
+            android:layout_margin="20dp"
+            />
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_margin="5dp"/>
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

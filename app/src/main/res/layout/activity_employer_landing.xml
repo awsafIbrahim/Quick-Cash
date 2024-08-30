@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorTertiary"
+    tools:context=".activities.employer.EmployerLandingActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/employerToolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:title="Employer Page"
+        android:background="@color/colorPrimary"
+        app:titleTextColor="@color/colorTertiary"
+        app:titleMarginStart="10dp">
+
+        <Button
+            android:id="@+id/employerToggleEmploymentView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="Employee"
+            android:backgroundTint="@color/colorSecondary"
+            android:textColor="@color/colorTertiary"/>
+
+        <Button
+            android:id="@+id/employerJobHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Job History"
+            tools:layout_editor_absoluteX="241dp"
+            tools:layout_editor_absoluteY="7dp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:rowCount="5"
+        android:columnCount="1"
+        app:layout_constraintTop_toBottomOf="@+id/employerToolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/btnEmployerAddJobPosting"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:text="Add Job\nPosting"
+            android:backgroundTint="@color/colorSecondary"
+            android:textColor="@color/colorTertiary"/>
+
+        <Button
+            android:id="@+id/btnEmployerViewJobPostings"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:text="View Job\nPostings"
+            android:backgroundTint="@color/colorSecondary"
+            android:textColor="@color/colorTertiary"/>
+
+        <Button
+            android:id="@+id/btnEmployerViewPreferredEmployees"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:text="View\nPreferred\nEmployees"
+            android:backgroundTint="@color/colorSecondary"
+            android:textColor="@color/colorTertiary"/>
+
+        <Button
+            android:id="@+id/btnEmployerAcceptedApplications"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:text="Accepted\nApplications"
+            android:backgroundTint="@color/colorSecondary"
+            android:textColor="@color/colorTertiary"/>
+
+        <Button
+            android:id="@+id/btnEmployerReport"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:text="Report"
+            android:backgroundTint="@color/colorSecondary"
+            android:textColor="@color/colorTertiary"/>
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:text="Logout"
+            android:backgroundTint="@color/colorSecondary"
+            android:textColor="@color/red"/>
+
+
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

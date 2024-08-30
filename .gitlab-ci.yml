@@ -1,0 +1,69 @@
+#Docker image used for this pipeline
+image: eclipse-temurin:17-jdk-jammy
+
+variables:
+  ANDROID_COMPILE_SDK: "33"
+  ANDROID_BUILD_TOOLS: "33.0.2"
+  ANDROID_SDK_TOOLS: "9477386"
+
+#Required steps to run
+before_script:
+  - apt-get --quiet update --yes
+  - apt-get --quiet install --yes wget unzip
+
+  #Setting up the Android SDK
+  - export ANDROID_HOME="${PWD}/android-sdk-root"
+  - install -d $ANDROID_HOME
+  - wget --no-verbose --output-document=$ANDROID_HOME/cmdline-tools.zip https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_SDK_TOOLS}_latest.zip
+  - unzip -q -d "$ANDROID_HOME/cmdline-tools" "$ANDROID_HOME/cmdline-tools.zip"
+  - mv -T "$ANDROID_HOME/cmdline-tools/cmdline-tools" "$ANDROID_HOME/cmdline-tools/tools"
+  - export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/cmdline-tools/tools/bin
+  - sdkmanager --version
+
+  #Accepts Android SDK licenses
+  - yes | sdkmanager --licenses > /dev/null || true
+
+  #Installing important Android SDK packages
+  - sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}"
+  - sdkmanager "platform-tools"
+  - sdkmanager "build-tools;${ANDROID_BUILD_TOOLS}"
+
+  #Making the Gradle script executable
+  - chmod +x ./gradlew
+
+  #Echo the API key for google maps into local.properties
+  - echo "MAPS_API_KEY=${MAPS_API_KEY}" > local.properties
+
+#Defining a job to check code with lint
+lintDebug:
+  interruptible: true
+  stage: build
+  script:
+    - ./gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint
+
+#Builing the debug version of the app
+assembleDebug:
+  interruptible: true
+  stage: build
+  script:
+    - ./gradlew assembleDebug
+  artifacts:
+    paths:
+      - app/build/outputs/
+
+#Run unit test cases
+debugTests:
+  interruptible: true
+  stage: test
+  script:
+    - ./gradlew -Pci --console=plain :app:testDebug
+
+unit_tests:
+  stage: test
+  script:
+    - ./gradlew test
+  artifacts:
+    when: always
+    expire_in: 30 days
+    paths:
+      - app/build/reports/tests/

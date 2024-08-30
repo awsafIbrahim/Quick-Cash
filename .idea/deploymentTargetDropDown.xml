@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="deploymentTargetDropDown">
+    <value>
+      <entry key="EmployeeJobHistoryActivityInstrumentedTest">
+        <State />
+      </entry>
+      <entry key="EmployerJobHistoryActivityInstrumentedTest">
+        <State />
+      </entry>
+      <entry key="app">
+        <State />
+      </entry>
+      <entry key="btnEmployeeJobHistoryDisplayed()">
+        <State />
+      </entry>
+      <entry key="btnEmployerJobHistoryDisplayed()">
+        <State />
+      </entry>
+      <entry key="app">
+        <State />
+      </entry>
+    </value>
+  </component>
+</project>
