@@ -1,4 +1,4 @@
-# CSCI3130 F23 Group3
+# Quick Cash App
 
 
 
